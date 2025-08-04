@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JCRM Technologies - REGISTER YOURSELF PAGE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+      margin: 0;
+    }
+
+    .custom-header {
+      background-color: white;
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 1rem;
+      min-height: 70px;
+      background-color: white;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-left img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .brand-left span {
+      color: black;
+      font-size: 1.6rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .navbar-section {
+      background-color: #212529;
+      width: 100%;
+    }
+
+    .navbar-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 10px 0;
+    }
+
+    .navbar-nav .nav-link {
+      color: white;
+      font-weight: 500;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      background: url('1st BACKGROUND.webp') no-repeat center center/cover;
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(4, 2, 2, 0.5); 
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      font-weight: bold;
+      font-family: 'Segoe UI Semibold', 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      background-color: #212529;
+      color: #fff;
+      padding: 40px 0;
+    }
+
+    .footer .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .footer .social-icons a:hover {
+      color: #fd210d;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .navbar-collapse {
+        background-color: #212529;
+        padding: 10px 0;
+      }
+
+      .brand-left span {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header with brand and nav -->
+<header class="custom-header">
+  <div class="container-fluid px-3">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid px-0">
+        <div class="brand-left">
+          <img src="LOGO JCRM .jpg" alt="Logo" />
+          <span>JCRM TECHNOLOGIES</span>
+        </div>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-section">
+    <div class="container-fluid justify-content-center">
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+          <li class="nav-item"><a class="nav-link" href="erp-solutions.html">ERP SOLUTIONS</a></li>
+          <li class="nav-item"><a class="nav-link" href="our-team.html">OUR TEAM</a></li>
+          <li class="nav-item"><a class="nav-link" href="meet-us.html">MEET US</a></li>
+          <li class="nav-item"><a class="nav-link" href="register-yourself.html">REGISTER YOURSELF</a></li>
+          <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT US</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1>Product-Based ERP Software Company</h1>
+    <p class="lead">
+      JCRM Technologies is a product-based IT company offering cutting-edge ERP solutions like LMS, HR, Hospital, Gym, Inventory, Cab Booking, Food Delivery, and E-Commerce systems. We also provide registration and placement support for various IT roles to help individuals grow in the tech industry.
+    </p>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section id="contact" class="bg-light py-5 text-center">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p>Have a question or want a demo? Reach out to us now!</p>
+    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer text-center">
+  <div class="container">
+    <p class="mb-2">&copy; 2025 JCRM Technologies. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
