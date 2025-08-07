@@ -82,7 +82,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(4, 2, 2, 0.5); 
+      background: rgba(4, 2, 2, 0.5);
       z-index: 1;
     }
 
@@ -108,6 +108,78 @@
     .section-title {
       font-weight: 600;
       margin-bottom: 20px;
+    }
+
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 60px 0;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .about-section .section-block {
+      width: 100%;
+      margin-bottom: 40px;
+      padding: 30px;
+      border: 1px solid #f0f0f0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-section .section-block:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #007bff;
+      text-transform: uppercase;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .about-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 50px solid #007bff;
+      flex-shrink: 0;
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    section {
+      padding: 60px 20px;
+      border-bottom: 1px solid #e0e0e0;
     }
 
     .footer {
@@ -170,7 +242,7 @@
           <li class="nav-item"><a class="nav-link" href="erp-solutions.html">ERP SOLUTIONS</a></li>
           <li class="nav-item"><a class="nav-link" href="our-team.html">OUR TEAM</a></li>
           <li class="nav-item"><a class="nav-link" href="meet-us.html">MEET US</a></li>
-          <li class="nav-item"><a class="nav-link" href="register-yourself.html">REGISTER YOURSELF</a></li>
+          <li class="nav-item"><a class="nav-link" href="join-us.html">JOIN US</a></li>
           <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
           <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT US</a></li>
         </ul>
@@ -189,15 +261,293 @@
   </div>
 </section>
 
+<!-- AOS Animation CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+<style>
+  .section-box {
+    padding: 60px 0;
+  }
+
+  .section-box h2 {
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .section-box p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 500;
+  }
+
+  .circular-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: 500px solid #007BFF;
+  }
+
+  @media (max-width: 768px) {
+    .circular-image {
+      width: 200px;
+      height: 200px;
+    }
+
+    .section-box h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Optional hover effects on text */
+  .section-box p:hover {
+    color: #007BFF;
+    transition: 0.3s;
+  }
+</style>
+
+<main>
+  <!-- About Us Section -->
+  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 1.avif" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="About Us">
+          </div>
+          <div class="col-md-6">
+            <h2>🏢 About Us</h2>
+            <p>Welcome to JCRM Technologies – a visionary, product-based IT company committed to building world-class ERP solutions that empower businesses to thrive in a digital-first world. We are not just service providers; we are technology partners, transforming challenges into scalable, intelligent, and future-ready solutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Who We Are Section -->  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center flex-md-row-reverse">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 2.jpg" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="Who We Are">
+          </div>
+          <div class="col-md-6">
+            <h2>👥 Who We Are</h2>
+            <p>We are a team of passionate thinkers, creators, and innovators who believe in the power of technology to shape the future. At JCRM Technologies, we bring together experienced developers, designers, and strategists to craft smart solutions that simplify complex business processes and create real impact.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Our Team Section -->  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 4.webp" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="Our Team">
+          </div>
+          <div class="col-md-6">
+            <h2>👨‍💻 Our Team</h2>
+            <p>Our strength lies in our people. We are proud to host a multi-disciplinary team of IT professionals including:</p>
+            <ul>
+              <li>🎨 UI/UX Designers</li>
+              <li>💻 Frontend Developers</li>
+              <li>🧠 Backend Developers</li>
+              <li>🛠 Full Stack Developers</li>
+              <li>✍ Content Writers</li>
+              <li>🎨 Graphic Designers</li>
+              <li>🧪 Software Testers</li>
+              <li>📈 Project Managers</li>
+              <li>🧩 DevOps and QA Specialists</li>
+            </ul>
+            <p>Each individual brings deep expertise, a growth mindset, and a strong commitment to excellence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Our Mission Section -->  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center flex-md-row-reverse">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 3.jpg" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="Our Mission">
+          </div>
+          <div class="col-md-6">
+            <h2>🎯 Our Mission</h2>
+            <p>At JCRM Technologies, our mission is to empower businesses by delivering innovative, intelligent, and scalable ERP solutions that simplify operations, improve efficiency, and drive sustainable growth.</p>
+            <p>We are commited to:</p>
+            <ul>
+              <li>🌟 Building user-friendly, robust ERP systems</li>
+              <li>🔍 Understanding unique business needs</li>
+              <li>🚀 Driving digital transformation through technology</li>
+              <li>🤝 Fostering long-term partnerships with our clients</li>
+              <li>🌱 Supporting continuous learning and development for our team</li>
+              <li>✨ Transforming complex business challenges into smart, integrated solutions</li>
+              <li>⚙ Automating workflows for greater speed, accuracy, and productivity</li>
+              <li>🌐 Connecting teams, data, and systems in one unified digital platform</li>
+              <li>🚀 Driving digital transformation across industries with future-ready technology</li>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Our Vision Section -->  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 5.avif" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="Our Vision">
+          </div>
+          <div class="col-md-6">
+            <h2>🌐 Our Vision</h2>
+            <p>To become a global leader in ERP solutions and IT services, recognized for our commitment to quality, innovation, and customer success. We envision a connected world where technology bridges gaps, enhances experiences, and fuels sustainable growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- What We Do Section -->  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center flex-md-row-reverse">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 6.jpeg" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="What We Do">
+          </div>
+          <div class="col-md-6">
+            <h2>💼 What We Do</h2>
+            <p>We design and develop advanced ERP products tailored to a wide range of industries. Our featured solutions include:</p>
+            <ul>
+              <li>📚 Learning Management Software (LMS)</li>
+              <li>👩‍💼 HR Management Systems</li>
+              <li>🏥 Hospital Management Software</li>
+              <li>🏋 Gym Management Platforms</li>
+              <li>🧾 Inventory Management Software</li>
+              <li>🚖 Cab Booking Systems</li>
+              <li>🍽 Food Delivery Management Software</li>
+              <li>🛒 E-Commerce Applications</li>
+            </ul>
+            <p>Every solution is built with scalability, security, and a seamless user experience at its core.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Why Choose Us Section -->  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 15.avif" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="Why Choose Us">
+          </div>
+          <div class="col-md-6">
+            <h2>💡 Why Choose Us</h2>
+            <ul>
+              <li>✅ Trusted product-based company with industry-specific solutions</li>
+              <li>✅ Agile and transparent development approach</li>
+              <li>✅ Experienced team across all IT domains</li>
+              <li>✅ Customized, scalable, and modern technology stacks</li>
+              <li>✅ Reliable customer support and timely delivery</li>
+              <li>✅ Focus on long-term growth and innovation</li>
+            </ul>
+            <blockquote>“We build more than software — we build trust, growth, and lasting partnerships.”</blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Join Our IT Talent Network Section -->  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center flex-md-row-reverse">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 12.png" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="Join Our Talent Network">
+          </div>
+          <div class="col-md-6">
+            <h2>🔗 Join Our IT Talent Network</h2> 
+            <p>Are you passionate about technology, innovation, and solving real-world challenges?</p>
+            <p>We believe in nurturing talent and creating meaningful opportunities for IT professionals to shine. At JCRM Technologies, we offer a collaborative environment where learning, creativity, and career growth come together.</p>
+            <p> At JCRM Technologies, we’re building a dynamic team of thinkers, creators, and problem-solvers who are shaping the future of ERP solutions. Whether you’re a Frontend Developer, Backend Engineer, UI/UX Designer, Content Writer, Software Tester, or any other IT expert — we welcome you to join our talent network.</p>
+            <li>✅ Collaborate with skilled professionals</li>
+            <li>✅ Work on innovative ERP projects</li>
+            <li>✅ Gain hands-on experience in cutting-edge technologies</li>
+            <li>✅ Contribute to impactful solutions that drive business success</li>
+            <li>✅ Work on real, impactful ERP projects</li>
+            <li>✅ Gain industry exposure and grow your career</li>
+            <li>✅ Be part of a future-focused tech community</li>
+            <li>✅ Flexible work culture with opportunities for remote work</li>
+            <li>✅ Continuous learning and professional development</li>
+            <li>✅ Mentorship from experienced industry leaders</li>
+            <li>✅ Competitive compensation and benefits</li>
+
+<blockquote> 💡 “Alone we can do so little; together we can do so much.” – Helen Keller</blockquote>
+            <blockquote>Whether you’re just beginning your journey or looking to expand your horizons, this is the platform to take your skills to the next level.</blockquote>
+            <p>🔗 Let’s build, innovate, and grow — together.</p>
+<p>📩 Drop your resume or connect with us today!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Who Can Join Us Section -->  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 18.avif" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="Who Can Join">
+          </div>
+          <div class="col-md-6">
+            <h2>👤 Who Can Join Us?</h2>
+            <p>We welcome passionate individuals from all IT backgrounds to join our team. We’re currently inviting talents in the fields of:</p>
+            <ul>
+              <li>UI/UX Design</li>
+              <li>Graphic Design</li>
+              <li>Frontend & Backend Development</li>
+              <li>Full Stack Development</li>
+              <li>Content Writing</li>
+              <li>Software Testing & QA</li>
+              <li>Technical Support & IT Services</li>
+            </ul>
+            <p>If you're ready to work on impactful projects, grow professionally, and be part of something meaningful — we’re ready for you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Let’s Build the Future Together Section -->  <section class="about-section">
+    <div class="section-box" data-aos="fade-up">
+      <div class="container">
+        <div class="row align-items-center flex-md-row-reverse">
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="CARTOON CODER 17.avif" class="img-fluid rounded-circle border border-primary" width="300" height="300" alt="Build the Future">
+          </div>
+          <div class="col-md-6">
+            <h2>🌟 Let’s Build the Future Together</h2>
+            <p>At JCRM Technologies, we don’t just deliver ERP software — we deliver transformation.
+Let’s connect, collaborate, and build powerful ERP solutions that streamline operations, enhance productivity, and drive business growth.</p>
+
+<p>our mission is to empower enterprises with intelligent, scalable, and future-ready technology.
+We believe that the future of business lies in automation, integration, and real-time data-driven decisions — and we are here to make it happen.</p>
+
+<p>Join us on a journey where innovation meets impact.
+Whether you’re a startup, a growing business, or a large-scale enterprise, our ERP systems are built to adapt, evolve, and scale with your ambitions.</p>
+
+<p>🌟 Together, we’re not just building software —
+We’re building the future of enterprise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
 <!-- Contact CTA -->
 <section id="contact" class="bg-light py-5 text-center">
   <div class="container">
     <h2 class="section-title">Get in Touch</h2>
     <p>Have a question or want a demo? Reach out to us now!</p>
-    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+    <a href="contact-us.html" class="btn btn-primary">Contact Us</a>
   </div>
 </section>
 
+<!-- AOS Animation JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+   
 <!-- Footer -->
 <footer class="footer text-center">
   <div class="container">
@@ -213,5 +563,16 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+  ScrollReveal().reveal('.section', {
+    origin: 'bottom',
+    distance: '60px',
+    duration: 1000,
+    delay: 200,
+    easing: 'ease-in-out',
+    reset: false
+  });
+</script>
 </body>
 </html>
