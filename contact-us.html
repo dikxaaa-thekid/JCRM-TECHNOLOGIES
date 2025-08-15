@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JCRM Technologies - CONTACT US PAGE</title>
+  <title>JCRM Technologies - CONTACT US</title>
+
+  <!-- Icons + Bootstrap + AOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <style>
     html {
       scroll-behavior: smooth;
@@ -82,7 +86,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(4, 2, 2, 0.5); 
+      background: rgba(4, 2, 2, 0.5);
       z-index: 1;
     }
 
@@ -143,10 +147,89 @@
       }
     }
   </style>
+
+  <style>
+    :root{
+      --hero-start: #2b3aeb;
+      --hero-end: #1e293b;
+      --accent: #5b7cfa;
+      --teal: #00bfa6;
+      --muted: #6b7280;
+      --card-radius: 14px;
+      --maxw: 1150px;
+    }
+
+    /* assistant hero  */
+    .assistant-hero {
+      background: linear-gradient(180deg, var(--hero-start) 6%, var(--hero-end) 70%);
+      color: #fff;
+      padding: clamp(60px, 9vw, 110px) 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .assistant-hero .hero-inner{ max-width: var(--maxw); margin: 0 auto; display:grid; gap:18px; align-items:center; }
+    .assistant-hero h1 { font-size: clamp(26px, 5vw, 48px); margin:0; font-weight:800; line-height:1.02; text-shadow: 0 6px 22px rgba(11,17,34,0.35); }
+    .assistant-hero p { color: rgba(248,250,252,0.94); font-size: clamp(14px,2.4vw,18px); max-width:900px; margin:6px 0 0; line-height:1.5; }
+    .assistant-hero .hero-actions{ margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
+
+    .btn-cta {
+      background: linear-gradient(90deg,#ffd166,#f97316);
+      color:#071024; padding:12px 18px; border-radius:999px; font-weight:800; display:inline-block; border:none; box-shadow:0 12px 30px rgba(249,115,22,0.12);
+    }
+    .btn-ghost { background: transparent; border:1px solid rgba(255,255,255,0.14); color:#fff; padding:10px 16px; border-radius:999px; font-weight:700; }
+
+    /* CONTACT MAIN AREA */
+    .contact-main { max-width: var(--maxw); margin: 28px auto; padding: 18px; display:grid; gap:26px; }
+    .row-cards { display:grid; grid-template-columns: 1fr 1fr; gap:22px; align-items:stretch; }
+
+    /* info card */
+    .info-card{
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      border-radius: 14px; padding:26px; box-shadow: 0 12px 30px rgba(11,17,34,0.06);
+    }
+    .info-card h3 { margin:0 0 8px; color:var(--accent); font-weight:800; }
+    .info-card p { margin:6px 0; color:var(--muted); font-weight:600; }
+
+    .quick-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .quick-actions a { display:inline-flex; gap:10px; align-items:center; padding:10px 12px; border-radius:10px; font-weight:700; color:#05264a; background:#eefdf7; text-decoration:none; }
+
+    /* form card */
+    .form-card {
+      background: linear-gradient(180deg, rgba(11,17,34,0.03), rgba(11,17,34,0.01));
+      border-radius: 14px; padding:22px; box-shadow: 0 10px 28px rgba(11,17,34,0.04);
+    }
+    .form-card h3{ margin:0 0 8px; color:#0b1226; font-weight:800; }
+    .form-row { display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; }
+    .form-control {
+      width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(11,17,34,0.08); font-size:1rem;
+    }
+    textarea.form-control{ min-height:140px; resize:vertical; }
+
+    .submit-row{ display:flex; gap:12px; align-items:center; margin-top:12px }
+    .btn-wa { background:#25D366; color:#05264a; padding:12px 16px; border-radius:10px; border:none; font-weight:800; display:inline-flex; gap:10px; align-items:center; }
+    .btn-email { background:transparent; border:1px solid rgba(11,17,34,0.06); padding:10px 12px; border-radius:10px; }
+
+    /* map */
+    .map-block { border-radius:14px; overflow:hidden; box-shadow: 0 12px 30px rgba(11,17,34,0.06); }
+    .map-block iframe { width:100%; height:420px; border:0; display:block; }
+
+    @media (max-width: 992px){
+      .row-cards{ grid-template-columns: 1fr; }
+      .form-row{ grid-template-columns: 1fr; }
+      .map-block iframe{ height:320px; }
+      .assistant-hero { padding: clamp(40px, 12vw, 72px) 16px; }
+      .assistant-hero h1 { font-size: clamp(20px, 6.5vw, 36px); }
+    }
+
+    /* accessibility */
+    .form-control:focus, .btn-cta:focus, .btn-wa:focus { outline: 4px solid rgba(91,124,250,0.12); outline-offset:3px; }
+    @media (prefers-reduced-motion: reduce){ *{ transition:none!important; } }
+
+  </style>
 </head>
 <body>
 
-<!-- Header with brand and nav -->
+<!-- HEADER / NAV  -->
 <header class="custom-header">
   <div class="container-fluid px-3">
     <nav class="navbar navbar-expand-lg">
@@ -169,7 +252,6 @@
           <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
           <li class="nav-item"><a class="nav-link" href="erp-solutions.html">ERP SOLUTIONS</a></li>
           <li class="nav-item"><a class="nav-link" href="our-team.html">OUR TEAM</a></li>
-          <li class="nav-item"><a class="nav-link" href="meet-us.html">MEET US</a></li>
           <li class="nav-item"><a class="nav-link" href="join-us.html">JOIN US</a></li>
           <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
           <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT US</a></li>
@@ -178,7 +260,6 @@
     </div>
   </nav>
 </header>
-
 <!-- Hero Section -->
 <section class="hero">
   <div class="container">
@@ -188,329 +269,86 @@
     </p>
   </div>
 </section>
-
-<!-- AOS CSS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<!-- MAIN CONTACT SECTION -->
-<section class="contact-section" id="contact" data-aos="fade-up">
-  <div class="container">
-
-    <!-- Oval Header -->
-    <div class="contact-header" style="background: url('CONTACT WHITE BACKGROUND.jpg') center/cover no-repeat;">
-      <div class="oval-shape">
-        <h2>📞 Contact Us</h2>
-        <div class="photo-holder">
-          <img src="LOGO JCRM .jpg" alt="Profile" />
-        </div>
-        <p class="contact-subtext">Let’s talk about your next big idea — we’re just a message away!</p>
+<!-- Assistant Hero Section -->
+<section class="assistant-hero" aria-label="JCRM hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Get in touch — JCRM Technologies</h1>
+      <p>We deliver industry-specific ERP systems (LMS, HR, Hospital, Gym, Inventory, Cab Booking, Food Delivery, E-Commerce) and provide internships & 100% placement assistance. Tell us what you need — demos, partnerships, or training.</p>
+      <div class="hero-actions">
+        <a class="btn-cta" href="#contact-main">Request a Demo</a>
+        <a class="btn-ghost" href="mailto:Sush07ee@gmail.com">Email Us</a>
       </div>
     </div>
-
-    <!-- Contact Info + Right Side Image -->
-    <div class="contact-wrapper" style="background: url('') center/cover no-repeat;">
-      <div class="contact-details" data-aos="fade-right">
-        <h3>JCRM Technologies</h3>
-        <div class="info-block">
-          <p><strong>👨‍💼 Business Head:</strong> <span>Er. Sushant</span></p>
-          <p>📞 <a href="tel:+919821660899">9821660899</a> | <a href="tel:+918310531309">8310531309</a></p>
-          <p>📧 <a href="mailto:Sush07ee@gmail.com">Sush07ee@gmail.com</a></p>
-          <p>📍 Plot No. 375, Sector-9, Wave City, N.H. 24,<br/>Kachera Duriyai Road, G.B. Nagar, U.P. 203207</p>
-        </div>
-      </div>
-      <div class="contact-image" data-aos="fade-left">
-        <img src="CALL US SECTION.webp" alt="Contact Side" />
-      </div>
-    </div>
-
-    <!-- Enquiry Form + Left Side Image -->
-    <div class="form-wrapper" style="background: url('') center/cover no-repeat;">
-      <div class="form-image" data-aos="fade-right">
-        <img src="ENQUIRY FORM SECION.png" alt="Form Side" />
-      </div>
-      <div class="enquiry-form" data-aos="fade-left">
-        <h3>📨 Send Us an Enquiry</h3>
-        <form id="enquiryForm">
-          <input type="text" id="name" placeholder="Your Name" required />
-          <input type="email" id="email" placeholder="Your Email" required />
-          <input type="tel" id="phone" placeholder="Phone Number" required />
-          <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-          <button type="submit"><i class="fab fa-whatsapp"></i> Send Message on WhatsApp</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- OUR LOCATION -->
-    <div class="location-section" style="background: url('LOCATION IMAGE.webp') center/cover no-repeat;" data-aos="fade-up">
-      <h2>📍 OUR LOCATION</h2>
-      <div class="map-container">
-        <iframe
-          src="https://www.google.com/maps?q=Plot+No.375+Sector-9+Wave+City+N.H.24+Kachera+Duriyai+Road+G.B.Nagar+U.P.+203207&output=embed"
-          width="100%"
-          height="450"
-          style="border:0; border-radius: 20px;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ✅ STYLES -->
-<style>
-  * {
-    box-sizing: border-box;
-  }
+<!-- CONTACT MAIN -->
+<main class="contact-main" id="contact-main" role="main">
 
-  .contact-section {
-    padding: 80px 20px;
-    background: #f4f7fb;
-    font-family: 'Segoe UI', sans-serif;
-  }
+  <!-- Info + Form -->
+  <div class="row-cards">
 
-  .contact-header {
-    text-align: center;
-    margin-bottom: 60px;
-    padding: 40px 0;
-  }
+    <!-- Info Card -->
+    <div class="info-card" data-aos="fade-right">
+      <h3>JCRM Technologies</h3>
+      <p><strong>Business Head:</strong> Er. Sushant</p>
+      <p><strong>Phone:</strong> <a href="tel:+919821660899">+91 98216 60899</a> &nbsp; | &nbsp; <a href="tel:+918310531309">+91 83105 31309</a></p>
+      <p><strong>Email:</strong> <a href="mailto:Sush07ee@gmail.com">Sush07ee@gmail.com</a></p>
+      <p><strong>Address:</strong><br/>Plot No. 375, Sector-9, Wave City, N.H.24,<br/>Kachera Duriyai Road, G.B. Nagar, U.P. 203207</p>
 
-  .oval-shape {
-    background: rgba(0, 123, 255, 0.85);
-    color: white;
-    padding: 40px 20px;
-    border-radius: 50% / 30%;
-    max-width: 550px;
-    margin: 0 auto;
-    backdrop-filter: blur(5px);
-  }
+      <div class="quick-actions" aria-hidden="false">
+        <a href="tel:+918310531309" aria-label="Call number"><i class="fa-solid fa-phone"></i> Call</a>
+        <a href="mailto:Sush07ee@gmail.com" aria-label="Email address"><i class="fa-solid fa-envelope"></i> Email</a>
+        <a href="https://wa.me/918310531309" target="_blank" rel="noopener" aria-label="WhatsApp chat"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
 
-  .oval-shape h2 {
-    font-size: 2.3rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-  }
+    <!-- Form Card -->
+    <div class="form-card" data-aos="fade-left" aria-labelledby="contact-form-title">
+      <h3 id="contact-form-title">Send an Enquiry</h3>
+      <p style="color:var(--muted); margin:0 0 12px">Complete the form and we will open WhatsApp with a prefilled message for fast contact — or submit via email.</p>
 
-  .photo-holder {
-    width: 130px;
-    height: 130px;
-    margin: 0 auto;
-    border-radius: 50%;
-    border: 4px solid white;
-    overflow: hidden;
-  }
+      <form id="enquiryForm" autocomplete="on" novalidate>
+        <div class="form-row">
+          <input class="form-control" type="text" id="name" name="name" placeholder="Your full name" required aria-label="Your full name" />
+          <input class="form-control" type="email" id="email" name="email" placeholder="Email address" required aria-label="Email address" />
+        </div>
 
-  .photo-holder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+        <div class="form-row" style="margin-top:10px;">
+          <input class="form-control" type="tel" id="phone" name="phone" placeholder="Phone number" required aria-label="Phone number" />
+          <input class="form-control" type="text" id="company" name="company" placeholder="Company / Institute (optional)" aria-label="Company or institute" />
+        </div>
 
-  .contact-subtext {
-    margin-top: 20px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    font-style: italic;
-    color: #fdfdfd;
-  }
+        <div style="margin-top:12px;">
+          <textarea class="form-control" id="message" name="message" placeholder="Tell us about your query / requirement" required aria-label="Your message"></textarea>
+        </div>
 
-  .contact-wrapper,
-  .form-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: space-between;
-    gap: 30px;
-    margin: 50px auto;
-    padding: 40px 20px;
-    border-radius: 20px;
-  }
+        <div class="submit-row">
+          <button class="btn-wa" type="submit" aria-label="Send via WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+          </button>
+        </div>
+        <p style="margin-top:12px;color:var(--muted);font-size:.95rem">We typically respond within 1–2 business days.</p>
+      </form>
+    </div>
 
-  .contact-details,
-  .enquiry-form {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 50px 40px;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
-  }
+  </div>
 
-  .contact-details h3,
-  .enquiry-form h3 {
-    font-size: 2rem;
-    color: #0056b3;
-    margin-bottom: 20px;
-  }
+  <!-- Map Block -->
+  <div class="map-block" data-aos="fade-up" aria-label="Company location">
+    <iframe
+      title="JCRM Location"
+      src="https://www.google.com/maps?q=Plot+No.+375+Sector-9+Wave+City+N.H.24+Kachera+Duriyai+Road+G.B.Nagar+U.P.+203207&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-  .info-block p {
-    font-size: 1.2rem;
-    margin: 12px 0;
-    color: #333;
-    font-weight: 500;
-  }
+</main>
 
-  .contact-details a {
-    color: #007bff;
-    text-decoration: none;
-  }
-
-  .contact-details a:hover {
-    text-decoration: underline;
-  }
-
-  .contact-image,
-  .form-image {
-    flex: 1;
-    min-width: 280px;
-    max-width: 50%;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-
-  .contact-image img,
-  .form-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .enquiry-form input,
-  .enquiry-form textarea {
-    width: 100%;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    border: 1px solid #ccc;
-    font-size: 1.1rem;
-    box-sizing: border-box;
-  }
-
-  .enquiry-form button {
-    background-color: #25D366;
-    color: white;
-    padding: 16px 35px;
-    border: none;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .enquiry-form button i {
-    margin-right: 10px;
-  }
-
-  .enquiry-form button:hover {
-    background-color: #1ebd5a;
-  }
-
-  .location-section {
-    margin-top: 80px;
-    padding: 60px 20px;
-    text-align: center;
-    border-radius: 20px;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .location-section h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 30px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  }
-
-  .map-container iframe {
-    width: 100%;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
-  }
-
-  @media (max-width: 992px) {
-    .contact-wrapper,
-    .form-wrapper {
-      flex-direction: column;
-      padding: 30px 15px;
-    }
-
-    .contact-image,
-    .form-image {
-      max-width: 100%;
-      height: 250px;
-    }
-
-    .contact-details,
-    .enquiry-form {
-      padding: 25px;
-    }
-
-    .oval-shape {
-      padding: 30px 15px;
-      border-radius: 45% / 30%;
-      max-width: 90%;
-    }
-
-    .oval-shape h2 {
-      font-size: 1.9rem;
-    }
-
-    .contact-subtext {
-      font-size: 1rem;
-      margin-top: 15px;
-    }
-
-    .location-section h2 {
-      font-size: 2rem;
-    }
-
-    .contact-details h3,
-    .enquiry-form h3 {
-      font-size: 1.6rem;
-    }
-
-    .info-block p {
-      font-size: 1rem;
-    }
-
-    .enquiry-form input,
-    .enquiry-form textarea {
-      font-size: 1rem;
-    }
-  }
-</style>
-
-<!-- WHATSAPP SCRIPT -->
-<script>
-  document.getElementById("enquiryForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    // Use \n instead of %0A, and then encode full string
-    const fullMessage = `Hi Er. Sushant,\nThis is ${name}.\nHere are my details:\n📧 Email: ${email}\n📱 Phone: ${phone}\n📝 Message: ${message}`;
-
-    const whatsappURL = 'https://wa.me/918310531309?text=' + encodeURIComponent(fullMessage);
-
-    window.open(whatsappURL, '_blank');
-  });
-</script>
-
-
-<!-- ✅ AOS SCRIPT -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
-<!-- Footer -->
+<!--  FOOTER -->
 <footer class="footer text-center">
   <div class="container">
     <p class="mb-2">&copy; 2025 JCRM Technologies. All rights reserved.</p>
@@ -524,6 +362,67 @@
   </div>
 </footer>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ once:true, duration:650, easing:'ease-out' });
+
+  // Form -> WhatsApp + Email behavior
+  const form = document.getElementById('enquiryForm');
+  const WA_NUMBER = '918310531309'; // WhatsApp target
+
+  function validateEmail(email){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = (document.getElementById('name').value || '').trim();
+    const email = (document.getElementById('email').value || '').trim();
+    const phone = (document.getElementById('phone').value || '').trim();
+    const company = (document.getElementById('company').value || '').trim();
+    const message = (document.getElementById('message').value || '').trim();
+
+    if(!name || !email || !phone || !message){
+      alert('Please fill name, email, phone and message.');
+      return;
+    }
+    if(!validateEmail(email)){
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const text =
+      `Hi Er. Sushant,%0A%0A` +
+      `Name: ${encodeURIComponent(name)}%0A` +
+      `Email: ${encodeURIComponent(email)}%0A` +
+      `Phone: ${encodeURIComponent(phone)}%0A` +
+      `Company: ${encodeURIComponent(company || 'N/A')}%0A%0A` +
+      `${encodeURIComponent(message)}`;
+
+    const waUrl = `https://wa.me/${WA_NUMBER}?text=${text}`;
+    window.open(waUrl, '_blank');
+  });
+
+  // Email button: opens mail client
+  document.getElementById('submitEmail').addEventListener('click', function(){
+    const name = (document.getElementById('name').value || '').trim();
+    const email = (document.getElementById('email').value || '').trim();
+    const phone = (document.getElementById('phone').value || '').trim();
+    const company = (document.getElementById('company').value || '').trim();
+    const message = (document.getElementById('message').value || '').trim();
+
+    if(!name || !email || !phone || !message){
+      alert('Please fill name, email, phone and message first.');
+      return;
+    }
+    const subject = encodeURIComponent('Website enquiry from ' + name);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company || 'N/A'}\n\nMessage:\n${message}`
+    );
+    window.location.href = `mailto:Sush07ee@gmail.com?subject=${subject}&body=${body}`;
+  });
+</script>
 </body>
 </html>

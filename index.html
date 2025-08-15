@@ -3,215 +3,803 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JCRM Technologies - HOME PAGE</title>
+  <title>JCRM Technologies — Home Page</title>
+  <meta name="description" content="JCRM Technologies provides industry-specific ERP solutions and IT training with internships and 100% placement assistance." />
+
+  <!-- Icons + Bootstrap -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <style>
-    html {
-      scroll-behavior: smooth;
-    } 
+    :root{
+      --maxw:1150px;
+      --accent-1: #5b7cfa;
+      --accent-2: #ffd166;
+      --muted: #a8b3cf;
+      --glass: rgba(255,255,255,0.04);
+      --bg-dark: #0b1020;
+      --card-radius: 16px;
+    
+      --hero-start: #2b3aeb;
+      --hero-end: #1e293b;
+    }
 
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: white;
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      color: #e6eefc;
       margin: 0;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height: 1.6;
     }
 
-    .custom-header {
-      background-color: white;
-    }
-
+    /* ---------------- Header / Nav ---------------- */
+    .custom-header { background-color: white; }
     .brand-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 1rem;
-      min-height: 70px;
-      background-color: white;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 1rem; min-height: 70px; background-color: white;
     }
-
-    .brand-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .brand-left img {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-
-    .brand-left span {
-      color: black;
-      font-size: 1.6rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .navbar-section {
+    .brand-left { display: flex; align-items: center; }
+    .brand-left img { height: 50px; width: 50px; border-radius: 50%; margin-right: 10px; }
+    .brand-left span { color: black; font-size: 1.6rem; font-weight: 700; white-space: nowrap; }
+.navbar-section {
       background-color: #212529;
       width: 100%;
     }
+    .navbar-section { background-color:#212529; width:100%; }
+    .navbar-nav { display:flex; flex-direction:row; justify-content:center; align-items:center; gap:40px; padding:10px 0; }
+    .navbar-nav .nav-link { color:white; font-weight:500; font-size:1rem; text-transform:uppercase; }
 
-    .navbar-nav {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      padding: 10px 0;
-    }
+    
+    .navbar-toggler-icon::after{bottom:0}
 
-    .navbar-nav .nav-link {
-      color: white;
-      font-weight: 500;
-      font-size: 1rem;
-      text-transform: uppercase;
-    }
-
-    .hero {
+    /* ---------------- Hero ---------------- */
+    .hero{
       background: url('1st BACKGROUND.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 80px 0;
-      text-align: center;
-      position: relative;
+      color: white; padding: clamp(72px,10vw,120px) 0; text-align: center; position: relative;
+      overflow: hidden;
     }
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,6,23,0.45),rgba(2,6,23,0.72));z-index:1}
+    .hero .container{position:relative;z-index:2;max-width:var(--maxw)}
+    .hero h1{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:900;letter-spacing:-0.6px;margin-bottom:8px}
+    .hero p{font-size:1.12rem;margin-top:12px;font-weight:600;line-height:1.6;color:var(--muted)}
+    .hero .badge{background:linear-gradient(90deg,var(--accent-2),#ffb066);color:#071024;padding:.55rem .8rem;border-radius:999px;font-weight:800;display:inline-flex;align-items:center;gap:8px}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(4, 2, 2, 0.5); 
-      z-index: 1;
-    }
+    .hero .hero-cta{margin-top:20px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .btn-hero-primary{background:linear-gradient(90deg,var(--accent-2),#ff9a3c);color:#071024;border-radius:999px;padding:12px 18px;font-weight:800;box-shadow:0 16px 36px rgba(255,154,60,0.12);border:0}
+    .btn-hero-ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700}
 
-    .hero .container {
-      position: relative;
-      z-index: 2;
-    }
+    /* ================= ASSISTANT HERO (================ */
 
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: bold;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 15px;
-      font-weight: bold;
-      font-family: 'Segoe UI Semibold', 'Segoe UI', sans-serif;
-      line-height: 1.7;
-      letter-spacing: 0.5px;
-    }
-
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .footer {
-      background-color: #212529;
+    .assistant-hero {
+  
+      background: linear-gradient(180deg, var(--hero-start), var(--hero-end));
       color: #fff;
-      padding: 40px 0;
+      padding: 32px;
+      border-radius: 18px;
+      max-width: calc(var(--maxw) + 40px);
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 20px;
+      align-items: center;
+      position: relative;
+      overflow: visible;
+      box-shadow: 0 20px 50px rgba(11,17,34,0.45);
+      border: 1px solid rgba(255,255,255,0.04);
     }
 
-    .footer .social-icons a {
-      color: #fff;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s;
+  
+    .assistant-hero .inner { max-width:var(--maxw); margin:0 auto; text-align:center; } 
+    .assistant-hero h2 { font-weight:800; margin:0 0 8px; font-size:clamp(18px,3.6vw,30px); }
+    .assistant-hero p { margin:0; color: rgba(255,255,255,0.92); line-height:1.45; font-size:clamp(13px,2vw,15px); }
+    .assistant-hero .cta { margin-top:12px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary-assist { background:linear-gradient(90deg,#ffd166,#f97316); color:#071024; padding:10px 16px; border-radius:999px; font-weight:700; text-decoration:none; display:inline-flex; gap:8px; align-items:center; }
+    .btn-ghost-assist { background:transparent; border:1px solid rgba(255,255,255,0.14); color:#fff; padding:10px 14px; border-radius:999px; font-weight:700; text-decoration:none; }
+
+    /* small right-side card */
+    .assistant-card{ background: rgba(255,255,255,0.04); border-radius:12px; padding:18px; text-align:center; border:1px solid rgba(255,255,255,0.06); }
+    .assistant-card img{ width:220px; max-width:100%; height:auto; display:block; margin:0 auto; }
+    .assistant-card .small{ color: rgba(255,255,255,0.9); margin-top:10px; font-size:.95rem; }
+
+    .features{display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+    .feature{background:rgba(255,255,255,0.06);border-radius:10px;padding:8px 10px;font-weight:700;color:#071024;background-clip:padding-box}
+
+    /* floating icons */
+    .float-icon{position:absolute;left:12px;bottom:-24px;background:linear-gradient(180deg,#ffd166,#f97316);width:66px;height:66px;border-radius:12px;display:grid;place-items:center;color:#071024;box-shadow:0 12px 30px rgba(0,0,0,0.25)}
+    .float-icon--right{right:12px;left:auto;bottom:-24px;background:linear-gradient(180deg,var(--hero-start),#3b62f5);color:#fff}
+
+    /* responsive */
+    @media (max-width: 1000px) {
+      .assistant-hero{ grid-template-columns: 1fr; padding:22px; }
+      .assistant-hero .inner { text-align:center; }
+      .float-icon, .float-icon--right { display:none; }
     }
 
-    .footer .social-icons a:hover {
-      color: #fd210d;
+    /* ---------------- Sections / Cards / Utilities ---------------- */
+    .section{padding:76px 0}
+    .section-title{font-weight:800;letter-spacing:.2px;color:#fff}
+    .lead-muted{color:var(--muted)}
+    .text-secondary{color:var(--muted)!important}
+
+    .card-glass{
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.04);
+      border-radius: 14px;
+      color: #e6eefc;
+      transition: transform .32s cubic-bezier(.2,.9,.3,1), box-shadow .32s;
     }
+    .card-glass:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(2,6,23,0.45)}
+
+    .icon-pill{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:#ffffff06;border:1px solid #ffffff10}
+
+    .list-checked li{ margin-bottom: .6rem; }
+    .list-checked i{ color: #00bfa6; } 
+
+    .badge-soft{background:#ffffff08;border:1px solid #ffffff12;color:#e6eefc;padding:.45rem .75rem;border-radius:999px}
+
+    .form-control, .form-select{ background:#0f172a; border-color:#253053; color:#e6eefc; }
+    .form-control:focus, .form-select:focus{ border-color:var(--accent-1); box-shadow:0 0 0 .25rem rgba(91,124,250,.12) }
+
+    .btn-primary{ --bs-btn-bg:var(--accent-1); --bs-btn-border-color:var(--accent-1); }
+    .btn-outline-light:hover { background:#ffffff0f; color:#071024 }
+
+    
+footer { background-color:#212529; color:#fff; padding:40px 0; }
+    .footer .social-icons a { color:#fff; margin:0 10px; font-size:1.5rem; transition: color 0.3s; }
+    .footer .social-icons a:hover { color:#fd210d; }
 
     @media (max-width: 991px) {
-      .navbar-nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .navbar-collapse {
-        background-color: #212529;
-        padding: 10px 0;
-      }
-
-      .brand-left span {
-        font-size: 1.4rem;
-      }
+      .navbar-nav { flex-direction:column; gap:10px; }
+      .navbar-collapse { background-color:#212529; padding:10px 0; }
+      .brand-left span { font-size:1.4rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- Header with brand and nav -->
-<header class="custom-header">
-  <div class="container-fluid px-3">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid px-0">
-        <div class="brand-left">
-          <img src="LOGO JCRM .jpg" alt="Logo" />
-          <span>JCRM TECHNOLOGIES</span>
+  <!--HEADER / NAV -->
+  <header class="custom-header">
+    <div class="container-fluid px-3">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-0">
+          <div class="brand-left">
+            <img src="LOGO JCRM .jpg" alt="Logo" />
+            <span>JCRM TECHNOLOGIES</span>
+          </div>
+          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><span></span></span>
+          </button>
         </div>
-        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      </nav>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-section">
+      <div class="container-fluid justify-content-center">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav text-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="erp-solutions.html">ERP SOLUTIONS</a></li>
+            <li class="nav-item"><a class="nav-link" href="our-team.html">OUR TEAM</a></li>
+            <li class="nav-item"><a class="nav-link" href="join-us.html">JOIN US</a></li>
+            <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT US</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
-  </div>
+  </header>
 
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-section">
-    <div class="container-fluid justify-content-center">
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav text-center">
-          <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
-          <li class="nav-item"><a class="nav-link" href="erp-solutions.html">ERP SOLUTIONS</a></li>
-          <li class="nav-item"><a class="nav-link" href="our-team.html">OUR TEAM</a></li>
-          <li class="nav-item"><a class="nav-link" href="meet-us.html">MEET US</a></li>
-          <li class="nav-item"><a class="nav-link" href="join-us.html">JOIN US</a></li>
-          <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT US</a></li>
-        </ul>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container text-center">
+      <span class="badge mb-3"><i class="fa-solid fa-bolt me-1"></i> Future-ready technology</span>
+      <h1>Product-Based ERP Software Company</h1>
+      <p class="lead mb-3">
+        JCRM Technologies is a product-based IT company offering cutting-edge ERP solutions like LMS, HR, Hospital, Gym, Inventory, Cab Booking, Food Delivery, and E-Commerce systems. We also provide registration and placement support for various IT roles to help individuals grow in the tech industry.
+      </p>
+      <div class="hero-cta">
+        <a href="erp-solutions.html" class="btn btn-hero-primary btn-lg"><i class="fa-solid fa-grid-2 me-2"></i> Explore Solutions</a>
+        <a href="join-us.html" class="btn btn-hero-ghost btn-lg"><i class="fa-solid fa-user-astronaut me-2"></i> Join Talent Network</a>
       </div>
     </div>
-  </nav>
-</header>
+  </section>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="container">
-    <h1>Product-Based ERP Software Company</h1>
-    <p class="lead">
-      JCRM Technologies is a product-based IT company offering cutting-edge ERP solutions like LMS, HR, Hospital, Gym, Inventory, Cab Booking, Food Delivery, and E-Commerce systems. We also provide registration and placement support for various IT roles to help individuals grow in the tech industry.
-    </p>
-  </div>
-</section>
+  <!-- ASSISTANT HERO -->
+  <section class="assistant-hero" aria-label="Overview highlight" data-aos="fade-up">
+    <div class="inner">
+      <h2>Empowering businesses with industry-specific ERP & hands-on talent</h2>
+      <p>We build scalable ERP products for education, healthcare, logistics, retail, fitness and more — and we train, intern and place talent in real IT roles (Full Stack, AI/ML, Cloud & DevOps, Cyber Security and QA Automation).</p>
 
-<!-- Contact CTA -->
-<section id="contact" class="bg-light py-5 text-center">
-  <div class="container">
-    <h2 class="section-title">Get in Touch</h2>
-    <p>Have a question or want a demo? Reach out to us now!</p>
-    <a href="contact-us.html" class="btn btn-primary">Contact Us</a>
-  </div>
-</section>
+      <div class="cta">
+        <a class="btn-primary-assist" href="contact-us.html" role="button"><i class="fa-solid fa-rocket"></i> Request a Demo</a>
+        <a class="btn-ghost-assist" href="about-us.html" role="button"><i class="fa-solid fa-users"></i> About Us</a>
+      </div>
 
-<!-- Footer -->
-<footer class="footer text-center">
-  <div class="container">
-    <p class="mb-2">&copy; 2025 JCRM Technologies. All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <div class="features" aria-hidden="true">
+        <div class="feature"><i class="fa-solid fa-check me-2"></i> Live Demos</div>
+        <div class="feature"><i class="fa-solid fa-briefcase me-2"></i> Real Projects</div>
+        <div class="feature"><i class="fa-solid fa-headset me-2"></i> Dedicated Support</div>
+      </div>
     </div>
-  </div>
-</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="assistant-card" data-aos="zoom-in">
+      <p class="small">Demo-driven product tours • Project internships • Fast onboarding</p>
+    </div>
+
+    <div class="float-icon" data-aos="zoom-in"><i class="fa-solid fa-star"></i></div>
+    <div class="float-icon float-icon--right" data-aos="zoom-in" data-aos-delay="120"><i class="fa-solid fa-thumbs-up"></i></div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="section-title">About JCRM Technologies</h2>
+          <p class="lead-muted">
+            We’re a forward-thinking IT solutions & training company helping businesses and learners thrive in a competitive digital era.
+          </p>
+          <p class="text-secondary">
+            We specialize in end-to-end ERP solutions for education, healthcare, logistics, retail, fitness, and more — and we run hands-on training, internships, and placement programs across Full Stack, Data Science, Cyber Security, Cloud & DevOps, AI/ML, and QA Automation.
+          </p>
+          <a href="#mission" class="btn btn-outline-light mt-3">Our Mission</a>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="card card-glass p-4 h-100">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="icon-pill mb-2"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="fw-semibold">Enterprise Security</div>
+                <small class="text-secondary">Hardened & compliant-first.</small>
+              </div>
+              <div class="col-6">
+                <div class="icon-pill mb-2"><i class="fa-solid fa-gauge-high"></i></div>
+                <div class="fw-semibold">Performance at Scale</div>
+                <small class="text-secondary">Optimized for growth.</small>
+              </div>
+              <div class="col-6">
+                <div class="icon-pill mb-2"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="fw-semibold">Modular Architecture</div>
+                <small class="text-secondary">Plug-and-play modules.</small>
+              </div>
+              <div class="col-6">
+                <div class="icon-pill mb-2"><i class="fa-solid fa-people-roof"></i></div>
+                <div class="fw-semibold">Real Projects</div>
+                <small class="text-secondary">Hands-on training.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ERP Solutions -->
+  <section id="solutions" class="section">
+    <div class="container">
+      <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-end justify-content-between mb-4">
+        <div>
+          <h2 class="section-title mb-1">ERP Solutions</h2>
+          <p class="lead-muted mb-0">Industry-specific products with modern UX, security, and scalability.</p>
+        </div>
+        <a href="contact-us.html" class="btn btn-outline-light mt-3 mt-lg-0">Request a Product Demo</a>
+      </div>
+
+      <div class="row g-4">
+        <!-- 8 solution cards -->
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h5>LMS</h5>
+            <p class="text-secondary small">Learning Management Software for institutes & enterprises — courses, attendance, assignments, exams, certificates and analytics.</p>
+            <a href="#contact-full" class="small">Learn more <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-people-group"></i></div>
+            <h5>HR Management</h5>
+            <p class="text-secondary small">Hiring, payroll, attendance, performance management, onboarding and employee self-service portals.</p>
+            <a href="#contact-full" class="small">Learn more <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-hospital"></i></div>
+            <h5>Hospital Management</h5>
+            <p class="text-secondary small">EMR, patient records, appointments, billing, lab integration and pharmacy management.</p>
+            <a href="#contact-full" class="small">Learn more <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-dumbbell"></i></div>
+            <h5>Gym Management</h5>
+            <p class="text-secondary small">Memberships, trainers, schedules, payments, attendance and progress tracking.</p>
+            <a href="#contact-full" class="small">Learn more <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-boxes-stacked"></i></div>
+            <h5>Inventory</h5>
+            <p class="text-secondary small">Stock management, purchase orders, vendor tracking, batch/expiry management and analytics.</p>
+            <a href="#contact-full" class="small">Learn more <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="50">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-taxi"></i></div>
+            <h5>Cab Booking</h5>
+            <p class="text-secondary small">Fleet management, dispatch console, driver apps, trip tracking and pricing engine.</p>
+            <a href="#contact-full" class="small">Learn more <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-burger"></i></div>
+            <h5>Food Delivery</h5>
+            <p class="text-secondary small">Order management, restaurant partners, rider assignment, live tracking and billing.</p>
+            <a href="#contact-full" class="small">Learn more <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-cart-shopping"></i></div>
+            <h5>E-Commerce</h5>
+            <p class="text-secondary small">Storefronts, product catalogs, payments, order fulfillment and data-driven insights.</p>
+            <a href="#contact-full" class="small">Learn more <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Offer -->
+  <section id="offer" class="section">
+    <div class="container">
+      <h2 class="section-title">What We Offer</h2>
+      <p class="lead-muted mb-4">From digital presence to qualified lead management — we help you focus on growth.</p>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-globe"></i></div>
+            <h5>Take Your Business Online</h5>
+            <p class="text-secondary small">Establish a strong, modern digital presence with websites, portals and productized ERP modules.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-filter"></i></div>
+            <h5>Save Time & Effort</h5>
+            <p class="text-secondary small">Filter noise and focus on strategic growth — automation and workflow optimization included.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-chart-line"></i></div>
+            <h5>Focus on Growth</h5>
+            <p class="text-secondary small">We handle campaigns, lead flows and analytics so you can innovate in your core business.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-brands fa-rocketchat"></i></div>
+            <h5>Social Media Lead Gen</h5>
+            <p class="text-secondary small">Live relationship managers and targeted outreach that nurtures qualified leads.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h5>Expert Business Analysis</h5>
+            <p class="text-secondary small">Market research, quick POCs and tailored growth strategies backed by data.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-bullhorn"></i></div>
+            <h5>Strong Digital Presence</h5>
+            <p class="text-secondary small">Consistent visibility across channels to expand brand reach and authority.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card card-glass p-4 h-100">
+            <div class="icon-pill mb-3"><i class="fa-solid fa-headset"></i></div>
+            <h5>Qualified Lead Management</h5>
+            <p class="text-secondary small">Calls, qualification, appointment setting and CRM hand-offs to your sales team.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why" class="section">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="section-title">Why Choose Us</h2>
+          <ul class="list-unstyled list-checked mt-3">
+            <li><i class="fa-solid fa-circle-check me-2"></i>Trusted product-based company with industry-specific solutions</li>
+            <li><i class="fa-solid fa-circle-check me-2"></i>Agile and transparent development approach</li>
+            <li><i class="fa-solid fa-circle-check me-2"></i>Experienced team across all IT domains</li>
+            <li><i class="fa-solid fa-circle-check me-2"></i>Customized, scalable, and modern technology stacks</li>
+            <li><i class="fa-solid fa-circle-check me-2"></i>Reliable customer support and timely delivery</li>
+            <li><i class="fa-solid fa-circle-check me-2"></i>Long-term growth & innovation mindset</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="card card-glass p-4">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="icon-pill mb-2"><i class="fa-solid fa-lock"></i></div>
+                <div class="fw-semibold">Secure</div>
+                <small class="text-secondary">RBAC, audit trails.</small>
+              </div>
+              <div class="col-6">
+                <div class="icon-pill mb-2"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                <div class="fw-semibold">Cloud-native</div>
+                <small class="text-secondary">CI/CD & auto-scaling.</small>
+              </div>
+              <div class="col-6">
+                <div class="icon-pill mb-2"><i class="fa-solid fa-chart-pie"></i></div>
+                <div class="fw-semibold">Analytics</div>
+                <small class="text-secondary">Real-time dashboards.</small>
+              </div>
+              <div class="col-6">
+                <div class="icon-pill mb-2"><i class="fa-solid fa-handshake"></i></div>
+                <div class="fw-semibold">Partnership</div>
+                <small class="text-secondary">Built for the long run.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section id="mission" class="section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6" data-aos="zoom-in">
+          <div class="card card-glass p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <div class="icon-pill"><i class="fa-solid fa-bullseye"></i></div>
+              <h3 class="mb-0">Our Mission</h3>
+            </div>
+            <p class="text-secondary">
+              Empower businesses with innovative, intelligent, and scalable ERP solutions that simplify operations, improve efficiency, and drive sustainable growth. We focus on usability, automation, integration, and real-time decisions while fostering long-term client partnerships and continuous learning.
+            </p>
+            <ul class="text-secondary small mb-0">
+              <li>Build user-friendly, robust ERP systems</li>
+              <li>Understand unique business needs</li>
+              <li>Automate workflows for speed & accuracy</li>
+              <li>Unify teams, data, and systems</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="80">
+          <div class="card card-glass p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <div class="icon-pill"><i class="fa-solid fa-eye"></i></div>
+              <h3 class="mb-0">Our Vision</h3>
+            </div>
+            <p class="text-secondary">
+              Become a global leader in ERP solutions and IT services, recognized for quality, innovation, and customer success — connecting experiences and fueling sustainable growth.
+            </p>
+            <span class="badge badge-soft me-1">Innovation</span>
+            <span class="badge badge-soft me-1">Customer Success</span>
+            <span class="badge badge-soft">Sustainability</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Internship & Placement -->
+  <section id="internship" class="section">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="section-title">Internships & 100% Placement Assistance</h2>
+          <p class="lead-muted">Hands-on learning with real projects and a strong hiring network in India and abroad.</p>
+
+          <div class="row g-3 mt-3">
+            <div class="col-6">
+              <div class="icon-pill mb-2"><i class="fa-solid fa-database"></i></div>
+              <small class="text-secondary">Backend Development</small>
+            </div>
+
+            <div class="col-6">
+              <div class="icon-pill mb-2"><i class="fa-solid fa-laptop-code"></i></div>
+              <small class="text-secondary">Frontend Development</small>
+            </div>
+
+            <div class="col-6">
+              <div class="icon-pill mb-2"><i class="fa-solid fa-code"></i></div>
+              <small class="text-secondary">Full Stack Development</small>
+            </div>
+
+            <div class="col-6">
+              <div class="icon-pill mb-2"><i class="fa-solid fa-brain"></i></div>
+              <small class="text-secondary">Data Science & AI/ML</small>
+            </div>
+
+            <div class="col-6">
+              <div class="icon-pill mb-2"><i class="fa-solid fa-shield"></i></div>
+              <small class="text-secondary">Cyber Security</small>
+            </div>
+
+            <div class="col-6">
+              <div class="icon-pill mb-2"><i class="fa-solid fa-cloud"></i></div>
+              <small class="text-secondary">Cloud & DevOps</small>
+            </div>
+
+            <div class="col-6">
+              <div class="icon-pill mb-2"><i class="fa-solid fa-vial"></i></div>
+              <small class="text-secondary">QA Automation</small>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="card card-glass p-4">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <i class="fa-solid fa-users-viewfinder fa-2x text-info"></i>
+              <h4 class="mb-0">Join Our IT Talent Network</h4>
+            </div>
+
+            <p class="text-secondary small mb-3">Collaborate with skilled professionals, work on innovative ERP projects, and grow your career with mentorship and flexible work options.</p>
+            <p class="text-secondary small mb-3">To apply, please follow these steps:</p>
+
+            <ol class="text-secondary small mb-3">
+              <li>Click on ‘Apply Now’ on our Join Us page.</li>
+              <li>Fill out the application form with accurate details and upload your resume.</li>
+              <li>Submit and wait for our team to review your application.</li>
+            </ol>
+
+            <p class="text-secondary small mb-3">Our team will carefully review your submission and respond within 1–3 business days, offering you comprehensive guidance throughout the entire process.</p>
+
+            <a href="join-us.html" class="btn btn-primary">Apply Now</a>
+            <p class="text-secondary small mt-3"><em>…and many more (we provide all types of IT Internships).</em></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Talent Network -->
+  <section id="talent" class="section">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7" data-aos="fade-up">
+          <h2 class="section-title">Join Our Talent Network</h2>
+          <p class="lead-muted">We welcome UI/UX, Graphic Design, Frontend/Backend, Full Stack, Content Writing, Software Testing/QA, and Technical Support talent.</p>
+
+          <ul class="list-checked">
+            <li><i class="fa-solid fa-circle-check me-2"></i>Real, impactful ERP projects</li>
+            <li><i class="fa-solid fa-circle-check me-2"></i>Industry exposure & growth</li>
+            <li><i class="fa-solid fa-circle-check me-2"></i>Mentorship by industry leaders</li>
+            <li><i class="fa-solid fa-circle-check me-2"></i>Flexible & remote-friendly culture</li>
+            <li><i class="fa-solid fa-circle-check me-2"></i>Competitive compensation & benefits</li>
+          </ul>
+
+          <div class="d-flex gap-3 mt-3">
+            <a href="#contact-full" class="btn btn-primary"><i class="fa-solid fa-paper-plane me-2"></i> Send Resume</a>
+            <a href="https://www.linkedin.com/company/jcrm-technologies-private-limited/" class="btn btn-outline-light"><i class="fa-brands fa-linkedin me-2"></i> Connect</a>
+          </div>
+        </div>
+
+        <div class="col-lg-5" data-aos="zoom-in">
+          <div class="card card-glass p-4">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <div class="icon-pill"><i class="fa-solid fa-quote-left"></i></div>
+              <h5 class="mb-0">“Alone we can do so little; together we can do so much.”</h5>
+            </div>
+            <small class="text-secondary">— Helen Keller</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">What Clients & Trainees Say</h2>
+
+      <div id="carouselTestimonials" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div class="carousel-indicators mb-3">
+          <button type="button" data-bs-target="#carouselTestimonials" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselTestimonials" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselTestimonials" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner card-glass p-4">
+          <div class="carousel-item active text-center">
+            <figure>
+              <blockquote class="blockquote">JCRM’s ERP unified our branches with real-time visibility and faster decisions.</blockquote>
+              <figcaption class="blockquote-footer text-secondary">Raghav Mishra</figcaption>
+            </figure>
+          </div>
+
+          <div class="carousel-item text-center">
+            <figure>
+              <blockquote class="blockquote">Hands-on internship prepared me for my first DevOps role. Excellent mentorship!</blockquote>
+              <figcaption class="blockquote-footer text-secondary">Shwati Singh</figcaption>
+            </figure>
+          </div>
+
+          <div class="carousel-item text-center">
+            <figure>
+              <blockquote class="blockquote">Transparent delivery, scalable stack, and great support — highly recommend.</blockquote>
+              <figcaption class="blockquote-footer text-secondary">Satyam Upadhyay</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Contact Section (detailed form & info) -->
+  <section id="contact-full" class="section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="lead-muted">Have a question or want a demo? Reach out to us now.</p>
+
+          <div class="card card-glass p-4">
+            <form id="contactForm">
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-control" name="name" placeholder="Your name" required>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" name="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">Company (optional)</label>
+                  <input type="text" class="form-control" name="company" placeholder="Company or Institute">
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">Message</label>
+                  <textarea class="form-control" name="message" rows="4" placeholder="Tell us about your needs" required></textarea>
+                </div>
+
+                <div class="col-12 d-flex gap-2">
+                  <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane me-2"></i>Send</button>
+                  <a id="waBtn" class="btn btn-outline-light" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-whatsapp me-2"></i>Send Resume via WhatsApp
+                  </a>
+                </div>
+              </div>
+            </form>
+
+            <small class="text-secondary d-block mt-2">We typically respond within 1–2 business days.</small>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="card card-glass p-4 h-100">
+            <h5 class="mb-3">Contact Information</h5>
+
+            <div class="d-flex align-items-center mb-2"><i class="fa-solid fa-envelope me-2 text-primary"></i> <span>Sush07ee@gmail.com</span></div>
+            <div class="d-flex align-items-center mb-2"><i class="fa-solid fa-phone me-2 text-primary"></i> <span>+91 83105 31309</span></div>
+            <div class="d-flex align-items-center mb-2"><i class="fa-solid fa-location-dot me-2 text-primary"></i> <span>Plot NO. 375 Sector-9 Wave City, N.H.24 Kachera Duriyai Road G.B.Nagar U.P.203207</span></div>
+
+            <div class="ratio ratio-16x9 mt-3">
+              <iframe title="map" style="border:0;border-radius:14px" loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Plot%20NO.%20375%20Sector-9%20Wave%20City%2C%20N.H.24%20Kachera%20Duriyai%20Road%20G.B.Nagar%20U.P.203207&output=embed"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p class="mb-2">&copy; 2025 JCRM Technologies. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // initialize AOS animations
+    AOS.init({ once:true, duration:700, easing:'ease-out' });
+
+    // WhatsApp link builder (for the detailed contact form)
+    const form = document.getElementById('contactForm');
+    const waBtn = document.getElementById('waBtn');
+    const WA_NUMBER = '919821660899'; // update to the correct number if needed
+
+    function buildWhatsAppLink(data){
+      const msgRaw = `Hello JCRM,\n\nName: ${data.name||''}\nEmail: ${data.email||''}\nCompany: ${data.company||'N/A'}\n\n${data.message||''}\n\nRequesting a demo.`;
+      const msg = encodeURIComponent(msgRaw);
+      return `https://wa.me/${WA_NUMBER}?text=${msg}`;
+    }
+
+    if (form && waBtn){
+      const updateWa = () => {
+        const data = Object.fromEntries(new FormData(form).entries());
+        waBtn.href = buildWhatsAppLink(data);
+      };
+      form.addEventListener('input', updateWa);
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        window.open(buildWhatsAppLink(data), '_blank');
+      });
+      updateWa();
+    }
+
+    // Accessibility helper
+    (function(){
+      const firstNavLink = document.querySelector('.navbar-nav .nav-link');
+      if(firstNavLink){
+        firstNavLink.addEventListener('focus', ()=>{ firstNavLink.style.outline = '2px solid rgba(91,124,250,0.6)'; });
+        firstNavLink.addEventListener('blur', ()=>{ firstNavLink.style.outline = 'none'; });
+      }
+    })();
+  </script>
+
 </body>
 </html>
