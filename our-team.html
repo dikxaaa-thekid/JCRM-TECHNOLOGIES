@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JCRM Technologies - OUR TEAM PAGE</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JCRM Technologies — Our Team</title>
+
+  <!-- Icons + Bootstrap -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Swiper for carousel -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
   <style>
-    html {
+    /* Prevent the entire page from creating a horizontal scrollbar */
+    html, body {
+      overflow-x: hidden;
       scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      margin: 0;
     }
 
+    /* Header / Nav */
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: white;
@@ -54,22 +69,12 @@
       width: 100%;
     }
 
-    .navbar-nav {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      padding: 10px 0;
-    }
 
-    .navbar-nav .nav-link {
-      color: white;
-      font-weight: 500;
-      font-size: 1rem;
-      text-transform: uppercase;
-    }
+    .navbar-section { background-color:#212529; width:100%; }
+    .navbar-nav { display:flex; flex-direction:row; justify-content:center; align-items:center; gap:40px; padding:10px 0; }
+    .navbar-nav .nav-link { color:white; font-weight:500; font-size:1rem; text-transform:uppercase; }
 
+    /* Hero */
     .hero {
       background: url('1st BACKGROUND.jpg') no-repeat center center/cover;
       color: white;
@@ -77,40 +82,17 @@
       text-align: center;
       position: relative;
     }
-
     .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(4, 2, 2, 0.5); 
-      z-index: 1;
+      content:""; position:absolute; top:0; left:0; right:0; bottom:0;
+      background: rgba(4,2,2,0.5); z-index:1;
     }
-
-    .hero .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: bold;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 15px;
-      font-weight: bold;
+    .hero .container { position:relative; z-index:2; }
+    .hero h1 { font-size:2.8rem; font-weight:bold; margin:0; }
+    .hero p { font-size: 1.2rem; margin-top:15px; font-weight:bold; line-height: 1.7; letter-spacing:0.5px;
       font-family: 'Segoe UI Semibold', 'Segoe UI', sans-serif;
-      line-height: 1.7;
-      letter-spacing: 0.5px;
     }
 
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .footer {
+.footer {
       background-color: #212529;
       color: #fff;
       padding: 40px 0;
@@ -126,60 +108,167 @@
     .footer .social-icons a:hover {
       color: #fd210d;
     }
+    :root {
+      --accent: #5b7cfa;
+      --muted: #6b7280;
+      --card-radius: 16px;
+      --maxw: 1200px;
+    }
 
+    /* Assistant hero */
+    .assistant-hero {
+      background: linear-gradient(180deg,#2533ff 4%, #0f172a 70%);
+      color:#fff;
+      padding: clamp(60px,9vw,110px) 16px;
+      overflow:hidden;
+    }
+    .assistant-hero .inner { max-width:var(--maxw); margin:0 auto; text-align:center; }
+    .assistant-hero h2 { font-weight:800; margin:0 0 8px; font-size:clamp(18px,3.6vw,30px); }
+    .assistant-hero p { margin:0; color: rgba(255,255,255,0.92); line-height:1.45; font-size:clamp(13px,2vw,15px); }
+    .assistant-hero .cta { margin-top:12px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary-assist { background:linear-gradient(90deg,#ffd166,#f97316); color:#071024; padding:10px 16px; border-radius:999px; font-weight:700; text-decoration:none; display:inline-flex; gap:8px; align-items:center; }
+    .btn-ghost-assist { background:transparent; border:1px solid rgba(255,255,255,0.14); color:#fff; padding:10px 14px; border-radius:999px; font-weight:700; text-decoration:none; }
+
+    /* ---------- Team carousel styles (center-focused 3-up) ---------- */
+    .team-section {
+      padding:48px 16px 72px;
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+      overflow: hidden; /* IMPORTANT: keep carousel overflow from enlarging page */
+    }
+
+    .team-title { text-align:center; margin-bottom:28px; }
+    .team-title h2 {
+      display:inline-block; font-size:1.9rem; font-weight:800; color:#0b1226; position:relative; padding-bottom:8px;
+    }
+    .team-title h2::after {
+      content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:0; width:64px; height:4px; background:var(--accent); border-radius:3px;
+    }
+    .team-title p { color:var(--muted); margin-top:10px; max-width:760px; margin-left:auto; margin-right:auto; }
+
+    /* Swiper container: center-only scroll area (not whole page) */
+    .mySwiper {
+      width:100%;
+      max-width:1200px;
+      margin: 0 auto;
+      padding: 28px 12px 56px;
+      box-sizing: border-box;
+      /* keep the carousel inside its section — prevents page horizontal scroll */
+      overflow: visible;
+    }
+
+    .swiper-wrapper { align-items:center; }
+    .swiper-slide { display:flex; justify-content:center; align-items:flex-start; overflow:visible; }
+
+    /* Profile card base (smaller sides; center pops) */
+    .profile-card {
+      width: 320px;
+      border-radius: var(--card-radius);
+      background: #fff;
+      border: 1px solid #e6e9ee;
+      box-shadow: 0 6px 20px rgba(16,24,40,0.08);
+      padding: 92px 18px 18px; 
+      text-align: center;
+      position: relative;
+      transition: transform .36s cubic-bezier(.2,.9,.3,1), box-shadow .36s ease, opacity .36s ease;
+      transform: scale(0.86);  
+      opacity: 0.78;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    /* center slide pops */
+    .swiper-slide-active .profile-card {
+      transform: scale(1);
+      opacity: 1;
+      box-shadow: 0 28px 60px rgba(16,24,40,0.12);
+    }
+    /* immediate neighbors slightly larger */
+    .swiper-slide-next .profile-card,
+    .swiper-slide-prev .profile-card {
+      transform: scale(0.94);
+      opacity: 0.96;
+    }
+
+    /* profile image positioned above the card */
+    .profile-pic {
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      object-fit:cover;
+      position:absolute;
+      top:-70px;
+      left:50%;
+      transform: translateX(-50%);
+      border:6px solid white;
+      box-shadow:0 8px 26px rgba(16,24,40,0.08);
+      background:#eee;
+      display:block;
+    }
+
+    .profile-name { font-weight:700; margin-top:6px; font-size:1.15rem; color:#0b1226; }
+    .profile-role { color:var(--accent); font-size:0.95rem; margin-bottom:8px; font-weight:600; }
+    .profile-short { color:#475569; font-size:0.92rem; margin:8px 0 12px; min-height:40px; }
+    .meta-row { display:flex; justify-content:center; gap:8px; margin-top:8px; flex-wrap:wrap; }
+    .btn-contact { font-size:.9rem; padding:.45rem .9rem; border-radius:8px; white-space:nowrap; }
+
+    /* cursor UX inside carousel */
+    .mySwiper .swiper-wrapper { cursor: grab; }
+    .mySwiper:active .swiper-wrapper { cursor: grabbing; }
+
+    /* pagination bullets */
+    .swiper-pagination-bullet { background:#cbd5e1; opacity:1; }
+
+    /* responsive */
+    @media (max-width: 1199px) {
+      .profile-card { width:300px; padding-top:82px; }
+      .profile-pic { width:120px; height:120px; top:-60px; }
+    }
     @media (max-width: 991px) {
-      .navbar-nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .navbar-collapse {
-        background-color: #212529;
-        padding: 10px 0;
-      }
-
-      .brand-left span {
-        font-size: 1.4rem;
-      }
+      /* show 2 on tablet; center still pops */
+      .profile-card { width:260px; padding-top:76px; transform: scale(0.88); }
+      .profile-pic { width:110px; height:110px; top:-55px; }
+    }
+    @media (max-width: 767px) {
+      /* mobile: show 1 centered */
+      .profile-card { width:92%; padding-top:72px; transform: scale(0.96); }
+      .profile-pic { width:110px; height:110px; top:-55px; }
     }
   </style>
 </head>
 <body>
 
-<!-- Header with brand and nav -->
-<header class="custom-header">
-  <div class="container-fluid px-3">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid px-0">
-        <div class="brand-left">
-          <img src="LOGO JCRM .jpg" alt="Logo" />
-          <span>JCRM TECHNOLOGIES</span>
+  <!-- HEADER -->
+  <header class="custom-header">
+    <div class="container-fluid px-3">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-0">
+          <div class="brand-left">
+            <img src="LOGO JCRM .jpg" alt="Logo" />
+            <span>JCRM TECHNOLOGIES</span>
+          </div>
+          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
         </div>
-        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      </nav>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-section">
+      <div class="container-fluid justify-content-center">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav text-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="erp-solutions.html">ERP SOLUTIONS</a></li>
+            <li class="nav-item"><a class="nav-link active" href="our-team.html">OUR TEAM</a></li>
+            <li class="nav-item"><a class="nav-link" href="join-us.html">JOIN US</a></li>
+            <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT US</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
-  </div>
+  </header>
 
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-section">
-    <div class="container-fluid justify-content-center">
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav text-center">
-          <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
-          <li class="nav-item"><a class="nav-link" href="erp-solutions.html">ERP SOLUTIONS</a></li>
-          <li class="nav-item"><a class="nav-link" href="our-team.html">OUR TEAM</a></li>
-          <li class="nav-item"><a class="nav-link" href="meet-us.html">MEET US</a></li>
-          <li class="nav-item"><a class="nav-link" href="join-us.html">JOIN US</a></li>
-          <li class="nav-item"><a class="nav-link" href="about-us.html">ABOUT US</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACT US</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<!-- Hero Section -->
+  <!-- Hero Section -->
 <section class="hero">
   <div class="container">
     <h1>Product-Based ERP Software Company</h1>
@@ -189,6 +278,227 @@
   </div>
 </section>
 
+  <!-- ASSISTANT HERO -->
+  <section class="assistant-hero">
+    <div class="inner container">
+      <h2>People build products — meet our team</h2>
+      <p>Engineers, designers and problem-solvers across frontend, backend, AI/ML, DevOps, QA and security — building industry-ready ERP systems and mentoring interns every day.</p>
+      <div class="cta" style="margin-top:12px">
+        <a class="btn-primary-assist" href="contact-us.html"><i class="fa-solid fa-phone"></i> Request a Demo</a>
+        <a class="btn-ghost-assist" href="join-us.html"><i class="fa-solid fa-user-plus"></i> Join Our Talent Network</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM (Swiper carousel: center-focused 3-up) -->
+  <section class="team-section">
+    <div class="container">
+      <div class="team-title">
+        <h2>Our Team — Meet the People Behind JCRM</h2>
+        <p>FACES BEHIND THE FUTURE</p>
+        <p>.........................</p>
+      </div>
+
+      <div class="mySwiper swiper">
+        <div class="swiper-wrapper">
+
+          <!-- 10 slides -->
+          <div class="swiper-slide">
+            <div class="profile-card" role="group" aria-label="Diksha Dubey — Frontend Developer">
+              <a href="profile-1.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="meeeh.jpg" alt="Diksha Dubey" />
+                <div class="profile-name">Diksha Dubey</div>
+                <div class="profile-role">Frontend Developer</div>
+              </a>
+              <div class="profile-short">React · HTML/CSS · Tailwind · UI collaboration</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-1.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="profile-card">
+              <a href="profile-2.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="https://i.pravatar.cc/300?img=2" alt="Neha Gupta" />
+                <div class="profile-name">Neha Gupta</div>
+                <div class="profile-role">Backend Developer</div>
+              </a>
+              <div class="profile-short">Node.js · Express · DB design · APIs</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-2.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="profile-card">
+              <a href="profile-3.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="https://i.pravatar.cc/300?img=3" alt="Rahul Verma" />
+                <div class="profile-name">Rahul Verma</div>
+                <div class="profile-role">Full Stack Developer</div>
+              </a>
+              <div class="profile-short">MERN · Cloud deployments · CI/CD</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-3.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="profile-card">
+              <a href="profile-4.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="https://i.pravatar.cc/300?img=4" alt="Priya Singh" />
+                <div class="profile-name">Priya Singh</div>
+                <div class="profile-role">Data Scientist</div>
+              </a>
+              <div class="profile-short">Python · ML models · Data pipelines</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-4.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="profile-card">
+              <a href="profile-5.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="https://i.pravatar.cc/300?img=5" alt="Satyam Kumar" />
+                <div class="profile-name">Satyam Kumar</div>
+                <div class="profile-role">DevOps Engineer</div>
+              </a>
+              <div class="profile-short">Kubernetes · Terraform · Monitoring</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-5.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="profile-card">
+              <a href="profile-6.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="https://i.pravatar.cc/300?img=6" alt="Raghav Mishra" />
+                <div class="profile-name">Raghav Mishra</div>
+                <div class="profile-role">QA Automation Engineer</div>
+              </a>
+              <div class="profile-short">Selenium · Cypress · Test strategy</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-6.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="profile-card">
+              <a href="profile-7.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="https://i.pravatar.cc/300?img=7" alt="Shweta Jain" />
+                <div class="profile-name">Shweta Jain</div>
+                <div class="profile-role">UI/UX Designer</div>
+              </a>
+              <div class="profile-short">Figma · Prototyping · Design systems</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-7.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="profile-card">
+              <a href="profile-8.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="https://i.pravatar.cc/300?img=8" alt="Karan Patel" />
+                <div class="profile-name">Karan Patel</div>
+                <div class="profile-role">Cyber Security Analyst</div>
+              </a>
+              <div class="profile-short">Pentesting · Security Ops · Risk assessment</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-8.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="profile-card">
+              <a href="profile-9.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="https://i.pravatar.cc/300?img=9" alt="Meera Das" />
+                <div class="profile-name">Meera Das</div>
+                <div class="profile-role">Product Manager</div>
+              </a>
+              <div class="profile-short">Road-mapping · Stakeholder mgmt · GTM</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-9.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="profile-card">
+              <a href="profile-10.html" style="text-decoration:none;color:inherit">
+                <img class="profile-pic" src="https://i.pravatar.cc/300?img=10" alt="Ankit Yadav" />
+                <div class="profile-name">Ankit Yadav</div>
+                <div class="profile-role">Cloud Intern</div>
+              </a>
+              <div class="profile-short">Cloud fundamentals · Docker · Scripting</div>
+              <div class="meta-row">
+                <a class="contact-btn btn btn-success" href="#"><i class="fa-brands fa-whatsapp me-1"></i> Contact</a>
+                <a class="btn btn-outline-secondary" href="profile-10.html"><i class="fa-solid fa-user me-1"></i> Profile</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- scripts (only once) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      centeredSlides: true,
+      spaceBetween: 24,
+      loop: true,
+      grabCursor: true,
+      slideToClickedSlide: true,
+      speed: 700,
+      autoplay: {
+        delay: 2200,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      keyboard: { enabled: true },
+      breakpoints: {
+        0:   { slidesPerView: 1.05, spaceBetween: 12 },
+        576: { slidesPerView: 1.3, spaceBetween: 14 },
+        768: { slidesPerView: 2, spaceBetween: 18 },
+        992: { slidesPerView: 3, spaceBetween: 24 }
+      },
+    });
+
+    // ensure proper visual classes after initialization
+    swiper.on('init slideChange transitionEnd', function () {
+      // no-op; CSS rules use .swiper-slide-active / next / prev
+    });
+    // init explicitly (some Swiper builds require init call)
+    if (!swiper.initialized) swiper.init();
+  </script>
+  
 <!-- Contact CTA -->
 <section id="contact" class="bg-light py-5 text-center">
   <div class="container">
